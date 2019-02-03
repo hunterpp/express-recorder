@@ -1,5 +1,5 @@
 import { Component, h } from "preact";
-import { SettingsDevices } from "./settings-devices";
+import { SettingsDevices } from "./Settings-devices";
 import SettingsIcon from "./settings.svg";
 const styles = require("./style.scss");
 

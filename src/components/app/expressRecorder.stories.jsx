@@ -1,18 +1,17 @@
 import { h } from "preact";
 import { storiesOf } from "@storybook/react";
-import { ExpressRecorder } from "./expressRecorder";
+import { ExpressRecorder } from "./ExpressRecorder";
 
 storiesOf("Main App", module).add("widget default", () => {
     return (
         <div>
             <ExpressRecorder
-                ks={"djJ8MjMyNjgyMXwrU0-ndW2_CwVtklE1M6VLu3aShSDY6TZ56UusuapKyCT5u1Zd0CCKbD0p_e2cW09PxuSFdlfmrOa4xPwj5chke9LwTlfRy0BYWNXxTGpDld8DgzrdVD3_yvKHM83NTbyzs8eFu0Bdh2M52ewlQ1Cjd2rjUgYCsRI3CPwst-gyiQ=="}
+                ks={"djJ8MjMyNjgyMXyC9uaZ5nhNVHdKHQPSPZYscYcs8_rIMa_wwXvH7op6wFmU3VN9q17rG4WQqKHPHpS-zvXhvLpHJFLqfrKhLX7_HxjvxoSl1ipnMEoM8gR5EtgWNktXAN9hqKQsvt4XInwbusArQGjBQeBPW6JteCkaeny3EU23NqaA_xgTgGZ6zQ=="}
 				app={"kms_client"}
                 serviceUrl={"https://www.kaltura.com"}
-				partnerId={346151}
-				uiConfId={43398481}
+				partnerId={2326821}
+				uiConfId={43638711}
 				playerUrl={"https://cdnapisec.kaltura.com"}
-				maxRecordingTime={5}
             />
         </div>
     );

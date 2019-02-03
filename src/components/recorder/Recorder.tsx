@@ -1,5 +1,5 @@
 import { h, Component } from "preact";
-import { Playback } from "../playback/playback";
+import { Playback } from "../playback/Playback";
 const styles = require("./style.scss");
 const fixVid = require("./webmFix.js");
 type Props = {

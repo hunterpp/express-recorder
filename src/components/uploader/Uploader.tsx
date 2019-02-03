@@ -12,7 +12,7 @@ import {
     KalturaMultiRequest,
     KalturaMultiResponse
 } from "kaltura-typescript-client";
-import { ProgressBar } from "../progress-bar/progressBar";
+import { ProgressBar } from "../progress-bar/ProgressBar";
 const styles = require("./style.scss");
 
 type Props = {
