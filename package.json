@@ -72,7 +72,7 @@
     },
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "tsconfig.test.json"
+        "tsConfigFile": "tsconfig.json"
       }
     },
     "moduleFileExtensions": [
@@ -85,7 +85,6 @@
       "js",
       "web.jsx",
       "jsx",
-      "json",
       "node"
     ]
 
