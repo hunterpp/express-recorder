@@ -1,6 +1,6 @@
-import { h } from "preact";
 import { render } from "preact-render-to-string";
 import { CountdownTimer } from "./CountdownTimer";
+import { h } from "preact";
 
 describe("Countdown timer start", () => {
     it("Renders without crashing", () => {
