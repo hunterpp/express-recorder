@@ -16,6 +16,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook -s ./src/public/assets",
     "storybook-build": "build-storybook -c .storybook -s ./src/public/assets"
   },
+
   "keywords": [],
   "author": "Kaltura",
   "license": "AGPL-3.0",
@@ -28,7 +29,7 @@
     "file-loader": "^3.0.1",
     "identity-obj-proxy": "^3.0.0",
     "if-env": "^1.0.0",
-    "jest": "^21.2.1",
+    "jest": "22.3.0",
     "microbundle": "^0.6.0",
     "node-sass": "^4.11.0",
     "preact-cli": "^2.2.1",
@@ -48,33 +49,23 @@
     "typescript": "^3.2.1"
   },
   "dependencies": {
+    "jest-css-modules-transform": "^2.1.1",
     "kaltura-typescript-client": "file:libs/kaltura-typescript-client-6.4.2-v20181223-153243.tgz",
-    "preact": "^8.2.5",
+    "preact": "8.2.7",
     "preact-habitat": "^3.2.2",
     "preact-router": "^2.5.7",
-    "preact-svg-loader": "^0.2.1"
+    "preact-svg-loader": "^0.2.1",
+    "tslib": "1.9.0"
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.(j|t)s?(x)",
-      "<rootDir>/src/**/?(*.)(spec|test).(j|t)s?(x)"
-    ],
-    "testEnvironment": "node",
-    "testURL": "http://localhost",
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$"
-    ],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web"
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js",
+      ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/node_modules/jest-css-modules-transform"
+
     },
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "tsconfig.json"
-      }
-    },
+
+    "testRegex": "/src/.*\\.*(spec|test).(ts|tsx|js)$",
+    "testURL": "http://localhost/",
     "moduleFileExtensions": [
       "mjs",
       "web.ts",
@@ -87,6 +78,5 @@
       "jsx",
       "node"
     ]
-
   }
 }
