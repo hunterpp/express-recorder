@@ -5,6 +5,12 @@
     cursor: pointer;
     svg {
         vertical-align: middle;
+        &:hover {
+            transform: rotate(10deg);
+            transition: transform 0.3s ease-in-out;
+        }
+        transform: rotate(-10deg);
+        transition: transform 0.3s ease-in-out;
     }
 }
 .settings {
@@ -140,4 +146,11 @@
     padding-left: 8px;
     padding-bottom: 12px;
     margin-left: -8px;
+}
+.settings-audio-indicator {
+    position: relative;
+    margin-top: 13px;
+    margin-right: 40px;
+    height: 10px;
+    float: right;
 }

@@ -177,7 +177,6 @@ export class ExpressRecorder extends Component<Props, State> {
             if (isWebRTCSupported) {
                 return;
             }
-
             if (item in window) {
                 isWebRTCSupported = true;
             }
@@ -255,9 +254,9 @@ export class ExpressRecorder extends Component<Props, State> {
                 (!selectedCamera && !constraints.video)) &&
             ((selectedAudio && constraints.audio) || // check if audio was turn on/off
                 (!selectedAudio && !constraints.audio)) &&
-            (!selectedCamera || // check if have different device IDs
+            (!selectedCamera || // check if device id has been changed
                 selectedCamera.deviceId === constraints.video.deviceId) &&
-            (!selectedAudio || // check if have different device IDs
+            (!selectedAudio || // check if device id has been changed
                 selectedAudio.deviceId === constraints.audio.deviceId)
         ) {
             return;
@@ -300,6 +299,28 @@ export class ExpressRecorder extends Component<Props, State> {
         window.onbeforeunload = (e: Event) => {
             return addMessage ? "" : null;
         };
+    };
+
+    handleDownload = () => {
+        const blob = new Blob(this.state.recordedBlobs, { type: "video/webm" });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        const entryName = this.props.entryName
+            ? this.props.entryName
+            : this.getDefaultEntryName();
+
+        // create hidden link with the file url and perform click to download the file.
+        a.style.display = "none";
+        a.href = url;
+        a.download = entryName + ".webm";
+        document.body.appendChild(a);
+        a.click();
+
+        // release the existing object URL - let the browser know not to keep the reference to the file any longer
+        setTimeout(() => {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 100);
     };
 
     render() {
@@ -349,6 +370,7 @@ export class ExpressRecorder extends Component<Props, State> {
                             allowVideo={constraints.video !== false}
                             allowAudio={constraints.audio !== false}
                             onSettingsChanged={this.handleSettingsChange}
+                            stream={stream}
                         />
                     )}
                 </div>
@@ -415,9 +437,18 @@ export class ExpressRecorder extends Component<Props, State> {
                                 }`}
                             >
                                 <button
+                                    className={`btn btn__download ${
+                                        styles["bottom__btn"]
+                                    } ${styles["btn__clear"]}`}
+                                    onClick={this.handleDownload}
+                                    tabIndex={0}
+                                >
+                                    Save a copy
+                                </button>
+                                <button
                                     className={`btn btn__reset ${
                                         styles["bottom__btn"]
-                                    } ${styles["btn__reset"]}`}
+                                    } ${styles["btn__clear"]}`}
                                     onClick={this.handleResetClick}
                                     tabIndex={0}
                                 >

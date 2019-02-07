@@ -39,6 +39,10 @@ export class CountdownTimer extends Component<Props, State> {
         }
     }
 
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
     update() {
         const { countdown } = this.state;
         const { onCountdownComplete } = this.props;
@@ -57,10 +61,13 @@ export class CountdownTimer extends Component<Props, State> {
         const { countdown } = state;
         const { radius } = props;
 
-
         return (
             <div class={`countdown ${styles["countdown"]}`}>
-                <div className={`countdown-number ${styles["countdown-number"]}`}>{countdown}</div>
+                <div
+                    className={`countdown-number ${styles["countdown-number"]}`}
+                >
+                    {countdown}
+                </div>
                 <svg className={styles["svg-countDownTimer"]}>
                     <circle
                         className={styles["circle"]}
