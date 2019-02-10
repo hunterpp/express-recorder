@@ -6,7 +6,7 @@ import { Uploader } from "../uploader/Uploader";
 import { Recorder } from "../recorder/Recorder";
 import { CountdownTimer } from "../countdown-timer/CountdownTimer";
 import { RecordingTimer } from "../recording-timer/RecordingTimer";
-import { ErrorScreen } from "../error-screen/ErrorScreen";
+import { ErrorScreen } from "../error-screen/errorScreen";
 import { Settings } from "../settings/Settings";
 const styles = require("./style.scss");
 
