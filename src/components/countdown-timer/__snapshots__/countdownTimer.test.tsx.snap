@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Countdown timer snapshot should render header with content 1`] = `"<div class=\\"countdown undefined\\"><div class=\\"countdown-number undefined\\">0</div><svg><circle r=\\"42\\" cx=\\"44\\" cy=\\"44\\"></circle></svg></div>"`;
+exports[`Match snapshot 1`] = `"<div class=\\"countdown undefined\\"><div class=\\"countdown-number undefined\\">3</div><svg><circle r=\\"42\\" cx=\\"44\\" cy=\\"44\\"></circle></svg></div>"`;
